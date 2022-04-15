@@ -11,7 +11,7 @@ class PriorityQueue:
     
     def put(self, data, priority):
         if data in self.priority:
-            print(data, 'exists.  Please use adjust_priority.')
+            print('{} exists. Use adjust_priority'.format(data))
             return
         self.heap.append(data)
         i = len(self.heap) - 1
@@ -20,7 +20,7 @@ class PriorityQueue:
         self.percolate_up(i)
     
     
-    def remove_most_prioritized(self):
+    def get(self):
         if len(self.heap)==0:
             return
         item_priority = self.priority[self.heap[0]]
@@ -83,6 +83,15 @@ class PriorityQueue:
     
     def __len__(self):
         return len(self.heap)
+    
+    
+    def __contains__(self, data):
+        return data in self.priority
+    
+        
+    def __getitem__(self, data):
+        return self.priority[data] if data in self.priority else None
+    
     
     def debug(self):
         print('heap', self.heap, 'len =', len(self.heap))
