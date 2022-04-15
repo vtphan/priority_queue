@@ -4,7 +4,9 @@ To use this priority queue, data must be hashable, e.g. numbers, strings, tuples
 
 Usage:
 ```
+from priority_queue import PriorityQueue
 import random
+
 q = PriorityQueue()
 for c in 'abcdefgh':
     p = random.randint(1,100)
