@@ -11,7 +11,7 @@ class PriorityQueue:
     
     def put(self, data, priority):
         if data in self.priority:
-            print('{} exists. Use method "adjust" to adjust priorities'.format(data))
+            print('{} exists. Use method "adjust" to adjust priorities.'.format(data))
             return
         self.heap.append(data)
         i = len(self.heap) - 1
