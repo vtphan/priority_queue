@@ -17,6 +17,6 @@ print('\nadjust priority of "a" to 120\n')
 q.adjust_priority('a', 120)
 
 while len(q) > 0:
-    c, p = q.remove_most_prioritized()
+    c, p = q.get()
     print('removed', c, 'with priority', p)
 ```
