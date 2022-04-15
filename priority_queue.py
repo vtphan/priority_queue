@@ -1,4 +1,5 @@
 #
+# Author: Vinhthuy Phan (04/2022)
 # priority queue (max heap) of *hashable* data
 #
 class PriorityQueue:
@@ -79,7 +80,10 @@ class PriorityQueue:
             self.heap[idx], self.heap[i] = self.heap[i], self.heap[idx]
             i = idx
         
-        
+    
+    def __len__(self):
+        return len(self.heap)
+    
     def debug(self):
         print('heap', self.heap, 'len =', len(self.heap))
         print('index', self.index, 'len=', len(self.index))

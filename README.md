@@ -14,7 +14,7 @@ for c in 'abcdefgh':
 print('\nadjust priority of "a" to 120\n')
 q.adjust_priority('a', 120)
 
-while len(q.heap) > 0:
+while len(q) > 0:
     c, p = q.remove_most_prioritized()
     print('removed', c, 'with priority', p)
 ```
