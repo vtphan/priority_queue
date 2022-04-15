@@ -1,4 +1,4 @@
-This implementation of priority queues let users adjust priorities of stored data.  While Python's standard libraries include an implementation of priority queues, priorities of data are not adjustable after they are stored.
+This implementation of priority queues lets users adjust priorities of stored data.  While Python's standard libraries include an implementation of priority queues, priorities of data are not adjustable after they are stored.
 
 To use this priority queue, data must be hashable, e.g. numbers, strings, tuples.  For unhashable data, this can be done by storing their hashable id's.
 
