@@ -40,7 +40,7 @@ class PriorityQueue:
         return item, item_priority
 
     
-    def adjust_priority(self, data, priority):
+    def adjust(self, data, priority):
         if data not in self.priority:
             print(data, 'is not in the queue.')
             return

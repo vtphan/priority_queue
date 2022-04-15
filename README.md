@@ -14,7 +14,7 @@ for c in 'abcdefgh':
     q.put(c, p)
 
 print('\nadjust priority of "a" to 120\n')
-q.adjust_priority('a', 120)
+q.adjust('a', 120)
 
 while len(q) > 0:
     c, p = q.get()
