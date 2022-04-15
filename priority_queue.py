@@ -99,3 +99,4 @@ class PriorityQueue:
         print('priority', self.priority, 'len=', len(self.priority))
         print('priorities:', sorted(self.priority.values()))
         print()
+
