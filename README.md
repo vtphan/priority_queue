@@ -7,16 +7,16 @@ Usage:
 from priority_queue import PriorityQueue
 import random
 
-q = PriorityQueue()
-for c in 'abcdefgh':
-    p = random.randint(1,100)
-    print('insert', c, 'with priority', p)
-    q.put(c, p)
+Q = PriorityQueue()
+for data in 'abcdefgh':
+    priority = random.randint(1,100)
+    Q[data] = priority  ### or Q.put(data, priority)
+    print('insert', data, 'with priority', priority)
 
 print('\nadjust priority of "a" to 120\n')
-q.adjust('a', 120)
+Q['a'] = 120    ### or Q.adjust('a', 120)
 
-while len(q) > 0:
-    c, p = q.get()
-    print('removed', c, 'with priority', p)
+while len(Q) > 0:
+    data, priority = Q.get()
+    print('removed', data, 'with priority', priority)
 ```

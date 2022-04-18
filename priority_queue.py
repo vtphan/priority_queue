@@ -92,6 +92,13 @@ class PriorityQueue:
     def __getitem__(self, data):
         return self.priority[data] if data in self.priority else None
     
+        
+    def __setitem__(self, data, priority):
+        if data in self.priority:
+            self.adjust(data, priority)
+        else:
+            self.put(data, priority)
+    
     
     def debug(self):
         print('heap', self.heap, 'len =', len(self.heap))
