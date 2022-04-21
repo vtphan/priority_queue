@@ -7,14 +7,14 @@ Usage:
 from priority_queue import PriorityQueue
 import random
 
-Q = PriorityQueue()
+Q = PriorityQueue('min')
 for data in 'abcdefgh':
     priority = random.randint(1,100)
-    Q[data] = priority  ### or Q.put(data, priority)
+    Q.put(data, priority)
     print('insert', data, 'with priority', priority)
 
 print('\nadjust priority of "a" to 120\n')
-Q['a'] = 120    ### or Q.adjust('a', 120)
+Q.adjust('a', 120)
 
 while len(Q) > 0:
     data, priority = Q.get()

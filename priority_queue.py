@@ -3,12 +3,14 @@
 # priority queue (max heap) of *hashable* data
 #
 class PriorityQueue:
-    def __init__(self):
+    def __init__(self, which):
+        if which not in ['min', 'max']:
+            raise Exception('type must be either "min" or "max".')
         self.heap = []
         self.priority = {}
         self.index = {}
-    
-    
+        self.priority_type = which
+
     def put(self, data, priority):
         if data in self.priority:
             print('{} exists. Use method "adjust" to adjust priorities.'.format(data))
@@ -51,10 +53,17 @@ class PriorityQueue:
             self.percolate_down(i)
     
     
+    def is_better(self, a, b):
+        if self.priority_type == 'max':
+            return a>b
+        else:
+            return a<b
+        
+        
     def percolate_up(self, i):
         while i>0:
             pid = (i-1)//2
-            if self.priority[self.heap[pid]] < self.priority[self.heap[i]]:
+            if self.is_better(self.priority[self.heap[i]], self.priority[self.heap[pid]]):
                 self.index[self.heap[pid]], self.index[self.heap[i]] = self.index[self.heap[i]], self.index[self.heap[pid]]
                 self.heap[pid], self.heap[i] = self.heap[i], self.heap[pid]
                 i = pid
@@ -68,13 +77,13 @@ class PriorityQueue:
             lc = i*2 + 1
             rc = i*2 + 2
             if rc < n:
-                if self.priority[self.heap[lc]] > self.priority[self.heap[rc]]:
+                if self.is_better(self.priority[self.heap[lc]], self.priority[self.heap[rc]]):
                     idx = lc
                 else:
                     idx = rc
             else:
                 idx = lc
-            if self.priority[self.heap[i]] > self.priority[self.heap[idx]]:
+            if self.is_better(self.priority[self.heap[i]], self.priority[self.heap[idx]]):
                 return
             self.index[self.heap[i]], self.index[self.heap[idx]] = self.index[self.heap[idx]], self.index[self.heap[i]]
             self.heap[idx], self.heap[i] = self.heap[i], self.heap[idx]
